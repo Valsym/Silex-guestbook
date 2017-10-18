@@ -1,0 +1,13 @@
+.label {
+    font-size: 100%;
+    color: gray;
+}
+.reqnote {
+	color: #fff;
+}
+.fixed {
+  position: fixed;
+  bottom: 200px;
+  right: 100px;
+}
+
