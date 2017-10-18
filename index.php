@@ -1,5 +1,6 @@
 <?php
-// файл index.php должен подключать Silex из директории vendor 
+// 
+Подключаем Silex из директории vendor 
 require_once __DIR__ . '/vendor/autoload.php';
 
 $app = new Silex\Application();
@@ -8,7 +9,8 @@ if ( 'localhost' == $_SERVER["SERVER_NAME"] ) { // вывод ошибок дл�
   $app['debug'] = true;
 }
 
-spl_autoload_register(function( $className ) {// Для более простого подключение вендоров, а также для будущего подключения моделей, добавим в бутстрап функцию автолоад:
+spl_autoload_register(function( $className ) {// Для более простого подключение вендоров, а также для будущего подключения моделей, 
+	//добавим функцию автолоад
   // Namespace mapping
   $namespaces = array(
     "Art" => __DIR__ . "/controller/view",
@@ -28,14 +30,14 @@ spl_autoload_register(function( $className ) {// Для более просто�
   }
 });
 
-$app['view'] = function($app) {// подключаем обработчик шаблонов в виде сервиса
+$app['view'] = function($app) { // подключаем обработчик шаблонов в виде сервиса
     return new Art\View($app);
 };
-$app['urlgen'] = function($app) {// подключаем url-генератор (абсолютные урлы)
+$app['urlgen'] = function($app) { // подключаем url-генератор (абсолютные урлы)
     return new Urlgen\Urlgen($app);
 };
 
-// UrlGenerator
+// UrlGenerator // подключаем url-генератор (относительные урлы)
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 //Controlelrs - подключаем все контроллеры из директории controller.
@@ -43,7 +45,7 @@ foreach ( glob(__DIR__."/controller/*.php") as $filename ) {
   require_once $filename;
 }
 
-//подключение ORM, для работы с базой - Doctrine 2:
+//подключение Doctrine 2, для работы с базой данных
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver'   	=> 'pdo_mysql',
