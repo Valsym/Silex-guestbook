@@ -1,9 +1,6 @@
 <?php
 namespace Urlgen;
 
-use \Symfony\Component\HttpKernel\HttpKernelInterface;
-use \Symfony\Component\HttpFoundation\Request;
-
 class Urlgen {
   private $app = null;
   //private $blocks = array();
