@@ -1,6 +1,5 @@
 <?php
-// 
-Подключаем Silex из директории vendor 
+// Подключаем Silex из директории vendor 
 require_once __DIR__ . '/vendor/autoload.php';
 
 $app = new Silex\Application();
