@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+	<meta charset="utf-8" />
+	<title>Наша Гостевая книга</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<?php //$path = __DIR__ . '/../web'; ?>
+	<link href='<?=$app['urlgen']->url(); ?>web/CSS/style.css' rel='stylesheet' />
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+</head>
+<body>
+<div class="container">
+   <div class="row padded">
+	  <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+		<div class="block1"><br />
+			<a href="<?=$app['urlgen']->url(); ?>web/comments/0/0"><img src="<?=$app['urlgen']->url(); ?>web/img/logo.gif"></a>
+
+		</div>
+	  </div>
+	  <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+	  <br /><br />
+		<div class="block2"><h1>Наша Гостевая книга</h1></div>
+	  </div>
+	  <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+	  </div>                    
+	</div>
+
+	<?php echo $content ?>
+
+	
+<hr class="featurette-divider"><footer><p>© 2017 <a href="<?=$app['urlgen']->url(); ?>web/comments/0/0">Наша Гостевая книга</a></p></footer>
+</div>
+</body>
+</html>

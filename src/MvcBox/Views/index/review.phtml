@@ -1,0 +1,41 @@
+	<div class="row padded">
+		  <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+			<div class="block1"><br />Сайдбар</div>
+		  </div>
+		  <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+			<div class="block2"><br /><br />
+				<h2>Отзыв:</h2><br />
+				<div id="reviews">
+					<?php if ( $comment ): ?>
+					<div>
+						<?php 
+						echo 'Автор: <b>'.$comment['comment_username'].'</b><br />';
+						echo  'Опубликовано: '.$comment['created_at'].'<br /></b>';
+						echo ' Отзыв: '.$comment['comment'].'<br /></b>';
+						$IP = $_SERVER['REMOTE_ADDR']; 
+						?>
+						
+						<button type="button" value="<?=$comment['likes']?>" class="glyphicon glyphicon-thumbs-up btn btn-info" class='button_like' id='<?php echo 'linkeBtn'.$comment['comment_id']; ?>' data-commentid="<?= $comment['comment_id']?>" data-ip="<?= $IP ?>"><?= $comment['likes']?></button>
+						<hr />
+						<a class="btn btn-lg btn-default" href="<?php echo $app['url_generator']->generate('form'); ?>" role="button">Оставьте ваш отзыв!</a>
+						
+					</div>
+
+					<?php else: ?>
+						Отзыв не найден
+					<?php endif ?>
+				</div>
+			</div>
+		  </div>
+		  <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
+			<div class="block3">				
+				<a class="btn btn-lg btn-success" href="<?php 
+						echo $app['url_generator']->generate('comments', array('sort1' => 0, 'sort2' => 0)); 
+						?>" role="button">Список отзывов</a>
+				<br /><br /><br /><span id="status"></span>
+			</div>
+		  </div>                    
+	</div>
+<?php $pathweb = __DIR__ . '/../../web'; ?>
+<script src='<?=$app['urlgen']->url(); ?>/web/JS/flike.js'></script>
+<script>flike();</script>
