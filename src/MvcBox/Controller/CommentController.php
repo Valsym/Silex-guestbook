@@ -5,9 +5,7 @@ namespace MvcBox\Controller;
 use MvcBox\Entity\Comment;
 use MvcBox\Entity\User;
 use MvcBox\Entity\Like;
-use MvcBox\Form\Type\CommentType;
 use Silex\Application;
-use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 
 class CommentController
